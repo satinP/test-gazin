@@ -3,19 +3,26 @@ import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 @Entity()
 export class Developer {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+	constructor(nome: string, idade: number, sexo: string, hobby: string) {
+		this.nome = nome;
+		this.idade = idade;
+		this.sexo = sexo;
+		this.hobby = hobby;
+	}
 
-    @Column()
-    nome: string;
+	@PrimaryGeneratedColumn()
+	id: number;
 
-    @Column({type: "char" , length: 1})
-    sexo;
+	@Column()
+	nome: string;
 
-    @Column()
-    idade: number;
+	@Column({type: "char" , length: 1})
+	sexo;
 
-    @Column({nullable: true})
-    hobby: string;
+	@Column()
+	idade: number;
+
+	@Column({nullable: true})
+	hobby: string;
 
 }
